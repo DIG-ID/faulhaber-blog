@@ -82,6 +82,7 @@ function fb_load_posts() {
 				endif;
 				$msg .= '<h2 class="fb-post--title">' . get_the_title() . '</h2>';
 				$msg .= '<p class="fb-post--description">' . wp_kses_post( get_the_excerpt() ) . '</p>';
+				$msg .= '<a href="' . get_the_permalink() . '" class="fb-post--link">' . __( 'weiterlesen', 'faulhaber-blog' ) . '</a>';
 				$msg .= '</article>';
 			endwhile;
 			wp_reset_postdata();

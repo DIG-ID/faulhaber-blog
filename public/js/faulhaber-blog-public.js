@@ -1,4 +1,4 @@
-import InfiniteScroll from 'infinite-scroll';
+//import InfiniteScroll from 'infinite-scroll';
 import Masonry from 'masonry-layout';
 import imagesLoaded from 'imagesloaded';
 (function( $ ) {
@@ -39,7 +39,7 @@ import imagesLoaded from 'imagesloaded';
 		let searchValue = '';
 		
 		function fbLoadAllPosts(page, blogCat = '', searchValue = '') {
-			$dots.fadeIn(500);
+			$dots.fadeIn(700);
 		
 			let postData = {
 				page: page,
@@ -81,7 +81,7 @@ import imagesLoaded from 'imagesloaded';
 					console.log('AJAX error:', status, error);
 				})
 				.always(() => {
-					$dots.fadeOut(500);
+					$dots.fadeOut(700);
 				});
 		}
 		

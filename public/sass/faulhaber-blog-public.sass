@@ -94,21 +94,23 @@
           position: relative
           display: inline-block
           margin: 5px 3px
-          padding: 0px 12px
+          padding: 3px 20px
           position: relative
           font-family: "EB Garamond", Sans-serif
-          font-size: 13px
+          font-size: 14px
           font-weight: 200
           line-height: 27px
           text-transform: none
-          text-decoration: underline
+          text-decoration: none
           border-radius: 25px
           box-shadow: none
           outline: none
           cursor: pointer
-          transition: all 0.3s
+          transition: all 0.3s ease-in-out
           color: #E4E4E3
           background-color: #3c3c3c
+          &:hover
+            text-decoration: underline
         
     .fb-pagination-nav
       display: flex
@@ -218,5 +220,8 @@
 
 @media ( max-width: 768px )
   .fb-grid
+    .fb-filters
+      &-search-wrapper
+        max-width: 100%
     .fb-stage
       align-items: flex-start
