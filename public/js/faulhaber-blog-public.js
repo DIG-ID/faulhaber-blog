@@ -38,22 +38,22 @@ import imagesLoaded from 'imagesloaded';
 		let blogCat = '';
 		let searchValue = '';
 		
-		function fbLoadAllPosts(page = 1, blogCat = '', searchValue = '') {
+		function fbLoadAllPosts(page, blogCat = '', searchValue = '') {
 			$dots.fadeIn(500);
 		
-			const postData = {
-				page,
+			let postData = {
+				page: page,
 				search: searchValue,
 				blog_cat: blogCat,
 			};
 		
-			const hiddenFormInput = $('form.fb-blog-list input.fb-hidden-form');
+			let hiddenFormInput = $('form.fb-blog-list input.fb-hidden-form');
 			hiddenFormInput.val(JSON.stringify(postData));
 		
-			const data = {
+			let data = {
 				action: 'fb_load_posts',
 				data: JSON.parse(hiddenFormInput.val()),
-				nonce: ajax_object.nonce,
+				nonce: ajax_object.nonce
 			};
 		
 			$.post(ajaxUrl, data)
@@ -85,19 +85,21 @@ import imagesLoaded from 'imagesloaded';
 				});
 		}
 		
+		// Check if our hidden form input is not empty, meaning it's not the first time viewing the page.
 		function initBlogList() {
-			const hiddenFormInput = $('form.fb-blog-list input.fb-hidden-form');
+			let hiddenFormInput = $('form.fb-blog-list input.fb-hidden-form');
 			if (hiddenFormInput.val()) {
+				// Submit hidden form input value to load previous page number
 				const data = JSON.parse(hiddenFormInput.val());
 				fbLoadAllPosts(data.page, data.blog_cat, data.search);
 			} else {
-				fbLoadAllPosts();
+				// Load first page
+				fbLoadAllPosts(1);
 			}
 		}
 		
-		// Initialize default item to sort and it's sort order
 		initBlogList();
-		
+
 		// Button functions
 		$('body').on('click', '.fb-filters-buttons', function(e) {
 			e.preventDefault();
@@ -128,8 +130,8 @@ import imagesLoaded from 'imagesloaded';
 		$('body').on('input', '.fb-filters-search', debouncedSearch);
 		
 		// Pagination Clicks
-		$('body').on('click', '.fb-container .fb-pagination li.active', function(e) {
-			const page = $(this).attr('p');
+		$('body').on('click', '.fb-container .fb-pagination li.active', function() {
+			let page = $(this).attr('p');
 			fbLoadAllPosts(page, blogCat, searchValue);
 		});
 

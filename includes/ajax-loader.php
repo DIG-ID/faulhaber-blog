@@ -78,7 +78,7 @@ function fb_load_posts() {
 				$all_blog_posts->the_post();
 				$msg .= '<article id="post-' . get_the_ID() . '" class="' . implode( ' ', get_post_class( 'fb-post col-xs-12 col-sm-6 col-md-4 col-lg-4' ) ) . '">';
 				if ( has_post_thumbnail() ) :
-					$msg .= '<figure class="fb-post--image-wrapper">' . get_the_post_thumbnail( get_the_ID(), 'medium', array( 'class' => 'fb-post--image' ) ) . '</figure>';
+					$msg .= '<figure class="fb-post--image-wrapper">' . get_the_post_thumbnail( get_the_ID(), 'large', array( 'class' => 'fb-post--image' ) ) . '</figure>';
 				endif;
 				$msg .= '<h2 class="fb-post--title">' . get_the_title() . '</h2>';
 				$msg .= '<p class="fb-post--description">' . wp_kses_post( get_the_excerpt() ) . '</p>';
@@ -132,14 +132,14 @@ function fb_load_posts() {
 		if ( $next_btn && $cur_page < $no_of_paginations ) :
 			$nex = $cur_page + 1;
 			$pag_container .= "<li p='$nex' class='active fb-next-page'> > </li>";
-		elseif ( $next_btn && $no_of_paginations > 1 ) :
+		elseif ( $next_btn && $no_of_paginations > 1) :
 			$pag_container .= "<li class='inactive'> > </li>";
 		endif;
 
 		$pag_container = $pag_container . '</ul>';
 
 		echo wp_kses_post( $msg );
-		echo '<div class = "fb-pagination-nav">' . wp_kses_post( $pag_container ) . '</div>';
+		echo '<div class = "fb-pagination-nav">' . $pag_container . '</div>';
 
 	else :
 		wp_send_json_error( 'Invalid request.' );
