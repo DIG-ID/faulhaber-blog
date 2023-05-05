@@ -1,0 +1,24 @@
+{
+  "name": "faulhaber-blog",
+  "version": "1.0.0",
+  "description": "=== Plugin Name === Contributors: (this should be a list of wordpress.org userid's) Donate link: https://dig.id Tags: comments, spam Requires at least: 3.0.1 Tested up to: 3.4 Stable tag: 4.3 License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "laravel-mix": "^6.0.49",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.62.1",
+    "sass-loader": "^12.1.0"
+  },
+  "dependencies": {
+    "flexboxgrid": "^6.3.1",
+    "imagesloaded": "^5.0.0",
+    "infinite-scroll": "^4.0.1",
+    "masonry-layout": "^4.2.2"
+  }
+}
