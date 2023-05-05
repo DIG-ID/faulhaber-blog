@@ -133,6 +133,8 @@ import imagesLoaded from 'imagesloaded';
 		$('body').on('click', '.fb-container .fb-pagination li.active', function() {
 			let page = $(this).attr('p');
 			fbLoadAllPosts(page, blogCat, searchValue);
+			// Scroll to top of page
+			$('html, body').animate({ scrollTop: 200 }, 'slow')
 		});
 
 	});
