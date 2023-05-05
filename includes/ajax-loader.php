@@ -87,7 +87,7 @@ function fb_load_posts() {
 			endwhile;
 			wp_reset_postdata();
 		else :
-			$msg .= '<div class="col-xs-12"><p class="warning" style="text-align:center; font-size:15px;">' . __( 'Es wurde kein Unternehmen gefunden, das Ihren Suchkriterien entspricht.', 'faulhaber-blog' ) . '</p></div>';
+			$msg .= '<div class="col-xs-12"><p class="warning" style="text-align:center; font-size:15px;">' . __( 'Es wurden keine Veröffentlichungen gefunden, die Ihren Suchkriterien entsprechen.', 'faulhaber-blog' ) . '</p></div>';
 		endif;
 
 		$msg = '<div class="fb-content row">' . $msg . '</div>';
