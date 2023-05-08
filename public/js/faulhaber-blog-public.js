@@ -39,7 +39,7 @@ import imagesLoaded from 'imagesloaded';
 		let searchValue = '';
 		
 		function fbLoadAllPosts(page, blogCat = '', searchValue = '') {
-			$dots.fadeIn(700);
+			$dots.fadeIn(800);
 		
 			let postData = {
 				page: page,
@@ -81,7 +81,7 @@ import imagesLoaded from 'imagesloaded';
 					console.log('AJAX error:', status, error);
 				})
 				.always(() => {
-					$dots.fadeOut(700);
+					$dots.fadeOut(800);
 				});
 		}
 		
