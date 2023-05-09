@@ -19,7 +19,7 @@ function fb_load_posts() {
 		$search_text  = sanitize_text_field( $_POST['data']['search'] );
 		$cur_page     = $page;
 		$page        -= 1;
-		$per_page     = 15; // Number of items to display per page
+		$per_page     = 32; // Number of items to display per page
 		$previous_btn = false;
 		$next_btn     = true;
 		$first_btn    = true;
