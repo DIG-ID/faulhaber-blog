@@ -38,18 +38,20 @@ function fb_load_posts() {
 		endif;
 
 		$args = array(
-			'post_type'      => 'post',
-			'post_status'    => 'publish',
-			'posts_per_page' => $per_page,
-			'offset'         => $start,
-			'orderby'        => 'date',
-			'order'          => 'DESC',
+			'post_type'        => 'post',
+			'post_status'      => 'publish',
+			'posts_per_page'   => $per_page,
+			'offset'           => $start,
+			'orderby'          => 'date',
+			'order'            => 'DESC',
+			'category__not_in' => array( 21 ),
 		);
 
 		$count_args = array(
-			'post_type'      => 'post',
-			'post_status'    => 'publish',
-			'posts_per_page' => -1,
+			'post_type'        => 'post',
+			'post_status'      => 'publish',
+			'posts_per_page'   => -1,
+			'category__not_in' => array( 21 ),
 		);
 
 		if ( $blog_cat ) :

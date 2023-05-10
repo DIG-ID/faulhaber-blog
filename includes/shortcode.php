@@ -4,7 +4,7 @@ function faulhaber_blog_shortcode( $atts ) {
 	$output = '<div class="fb-grid">';
 	$output .= '<div class="fb-filters">';
 	//$output .= '<button class="fb-filters-buttons" data-filter="*" class="active">All</button>';
-	foreach ( get_categories() as $category ) {
+	foreach ( get_categories( array( 'exclude' => array( 21 ) ) ) as $category ) {
 		$output .= '<button class="fb-filters-buttons" data-category="' . esc_attr( $category->slug ) . '">' . esc_html( $category->name ) . '</button>';
 	}
 	$output .= '</div>';
