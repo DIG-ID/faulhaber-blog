@@ -33,12 +33,20 @@ import imagesLoaded from 'imagesloaded';
 	 */
 	$(function() {
 
-		const ajaxUrl = ajax_object.ajaxurl;
+		let cacheBuster;
 		const $dots = $('.fb-stage');
 		let blogCat = '';
 		let searchValue = '';
-		
+
+		// Update cacheBuster value when the content changes.
+		function updateCacheBuster() {
+			cacheBuster = Date.now();
+		}
+
 		function fbLoadAllPosts(page, blogCat = '', searchValue = '') {
+			// Append cacheBuster to the AJAX URL
+			const ajaxUrl = ajax_object.ajaxurl + '?cache=' + cacheBuster;
+
 			$dots.fadeIn(800);
 		
 			let postData = {
@@ -75,6 +83,7 @@ import imagesLoaded from 'imagesloaded';
 						imagesLoaded(elem).on('progress', () => {
 							msnry.layout();
 						});
+						
 					}
 				})
 				.fail((xhr, status, error) => {
@@ -87,6 +96,7 @@ import imagesLoaded from 'imagesloaded';
 		
 		// Check if our hidden form input is not empty, meaning it's not the first time viewing the page.
 		function initBlogList() {
+			updateCacheBuster();
 			let hiddenFormInput = $('form.fb-blog-list input.fb-hidden-form');
 			if (hiddenFormInput.val()) {
 				// Submit hidden form input value to load previous page number
